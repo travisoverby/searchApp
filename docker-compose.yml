@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  server:
+    build: ./server
+    image: rails-docker
+    restart: "no"
+    environment:
+      - BING_API_KEY=a4d4d36e5a124fbebf2ecd665f9c1f5a
+      - BING_API_ENDPOINT=https://api.bing.microsoft.com/v7.0/search
+      - GOOGLE_API_ENDPOINT=https://www.googleapis.com/customsearch/v1
+      - GOOGLE_API_KEY=AIzaSyBJSF0cRxIQSADT_2OfV9G5m7NpRVUn7jk
+      - GOOGLE_SEARCH_ENGINE_ID=228a3b206fe724716
+    ports:
+      - 3000:3000
+  client:
+    build: ./client
+    image: react-docker
+    restart: "no"
+    environment:
+      - FAST_REFRESH=false
+      - PORT=3001
+    ports:
+      - 3001:3001

@@ -1,0 +1,14 @@
+{
+  "name": "searchApp",
+  "packageManager": "yarn@3.3.0",
+  "scripts": {
+    "dc:start": "docker compose up --build",
+    "dev:init": "cd server && bundle install && cd .. && yarn",
+    "dev:start:server": "cd server && bin/rails server",
+    "dev:start:client": "cd client && yarn start"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}
